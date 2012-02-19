@@ -1,12 +1,11 @@
 <h1>All Bookmarks</h1>
 
-<table>
+<table width="100%">
   <tr>
     <th>Name</th>
     <th>URL</th>
     <th>Date Saved</th>
-    <th></th>
-    <th></th>
+    <th>&nbsp;</th>
   </tr>
 
 
@@ -21,10 +20,21 @@
       end
     %>
     
+    <% if /^http/.match(bookmark.url)
+       aUrl = bookmark.url
+      else
+        aUrl = "http://#{bookmark.url}"
+      end
+    %>
+  
+  
+    
     <td><%= bookmark.name %></td>
-    <td><%= bookmark.url %></td>
+    <td><%= link_to (aUrl), aUrl, :target => '_blank' %></td>
     <td><%= if date_exists
           bookmark.date_saved.strftime("%m/%d/%Y")
+        else
+          "unknown"
         end %></td>
     <td><%= link_to 'Show', bookmark %></td>
   </tr>
