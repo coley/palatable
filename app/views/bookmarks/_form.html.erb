@@ -1,0 +1,30 @@
+<%= form_for(@bookmark) do |fieldBookmark| %>
+  <% if @bookmark.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@bookmark.errors.count, "error") %> prohibited this bookmark from being saved:</h2>
+
+      <ul>
+      <% @bookmark.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= fieldBookmark.label :name %><br />
+    <%= fieldBookmark.text_field :name %><br /><br />
+  </div>
+  <div class="field">
+    <%= fieldBookmark.label :url %><br />
+    <%= fieldBookmark.text_field :url %><br /><br />
+  </div>
+  <div class="field">
+    <%= fieldBookmark.label :date_saved %><br />
+    <%= fieldBookmark.date_select :date_saved, :order => [:month, :day, :year]%>
+    <br /><br />
+  </div>
+  <div class="actions">
+    <%= fieldBookmark.submit %><br /><br />
+  </div>
+<% end %>

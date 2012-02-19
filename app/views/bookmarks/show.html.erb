@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @bookmark.name %>
+</p>
+
+<p>
+  <b>URL:</b>
+  <%= @bookmark.url %>
+</p>
+
+<p>
+  <b>Date Saved:</b>
+  <%= @bookmark.date_saved.strftime("%m/%d/%Y") %>
+</p>
+
+<%= link_to 'Back', bookmarks_path %>

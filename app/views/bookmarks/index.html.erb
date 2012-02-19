@@ -1,0 +1,36 @@
+<h1>All Bookmarks</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>URL</th>
+    <th>Date Saved</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+
+<% @bookmarks.each do |bookmark| %>
+  <tr>
+    
+    <% 
+      if bookmark.date_saved != nil
+        date_exists = true
+      else
+        date_exists = false
+      end
+    %>
+    
+    <td><%= bookmark.name %></td>
+    <td><%= bookmark.url %></td>
+    <td><%= if date_exists
+          bookmark.date_saved.strftime("%m/%d/%Y")
+        end %></td>
+    <td><%= link_to 'Show', bookmark %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Bookmark', new_bookmark_path %>
