@@ -22,7 +22,7 @@ class BookmarksController < ApplicationController
 
   def new
     @bookmark = Bookmark.new
-    @title = "new bookmark"
+    @title = "add bookmark"
 
     respond_to do |format|
       format.html

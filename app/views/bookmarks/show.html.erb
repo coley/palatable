@@ -1,10 +1,38 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @bookmark.name %>
-</p>
+<% if /^http/.match(@bookmark.url)
+       aUrl = @bookmark.url
+  else
+      aUrl = "http://#{@bookmark.url}"
+  end
+  
+  if @bookmark.date_saved != nil
+        date_exists = true
+  else
+        date_exists = false
+  end
+%>
 
+<h1><%= @bookmark.name %></h1>
+
+<div id="showBookmarkContainer">
+  
+  <div id="showBookmarkData">
+    <p>URL:  <%= link_to (aUrl), aUrl, :target => '_blank' %></p>
+    
+    <p>Date Saved:
+        <%= if date_exists
+          @bookmark.date_saved.strftime("%m/%d/%Y")
+        else
+          "unknown"
+        end %>
+    </p>
+  </div>
+</div>
+
+<br />
+
+<!--
 <p>
   <b>URL:</b>
   <% if /^http/.match(@bookmark.url)
@@ -31,5 +59,6 @@
         "unknown"
       end %>
 </p>
+-->
 
 <%= link_to 'Back', bookmarks_path %>

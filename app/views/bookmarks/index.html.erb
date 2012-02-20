@@ -1,4 +1,57 @@
-<h1>All Bookmarks</h1>
+<h1>Welcome to pal.atab.le!</h1>
+
+<p>Pal.atab.le lets you to share the amazing things you find with others.
+Have fun!</p>
+
+<%= link_to 'add bookmark', new_bookmark_path %>
+<br /><br />
+
+<div id="indexAllBookmarks">
+<% @bookmarks.each do |bookmark|
+
+  if bookmark.date_saved != nil
+    date_exists = true
+  else
+    date_exists = false
+  end
+   
+  if /^http/.match(bookmark.url)
+    aUrl = bookmark.url
+  else
+    aUrl = "http://#{bookmark.url}"
+  end
+%>
+
+  <div class="indexBookmarkContainer">
+    
+    <div class="indexBookmarkData">
+      
+      <div class="indexBookmarkTitleContainer">
+          <div class="indexBookmarkTitle">
+            <h3><%= link_to bookmark.name, bookmark %></h3>
+          </div>
+      </div>
+      
+      <div class="indexBookmarkUrl">
+        <%= link_to (aUrl), aUrl, :target => '_blank' %><br />
+      </div>
+      
+      <div class="indexBookmarkSaveDate">(date saved: 
+         <%= if date_exists
+            bookmark.date_saved.strftime("%m/%d/%Y")
+          else
+            "unknown"
+          end %>)
+      </div>
+      
+    </div>
+  </div>
+<% end %>
+
+</div>
+
+
+<!--<h1>All Bookmarks</h1>
 
 <table width="100%">
   <tr>
@@ -42,5 +95,6 @@
 </table>
 
 <br />
+-->
 
-<%= link_to 'New Bookmark', new_bookmark_path %>
+

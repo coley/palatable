@@ -1,1 +1,52 @@
 /* Override here any style defined by web-app-theme */
+
+#showBookmarkContainer {
+    border:1px grey outset;
+    height:auto;
+    width:auto;
+    background: white;
+}
+
+#showBookmarkData {
+    margin: 5px;
+}
+
+.indexBookmarkContainer {
+    float:left;
+    border:1px grey outset;
+    height:150px;
+    width:225px;
+    margin: 5px;
+    background: white;
+    position: relative; 
+}
+
+.indexBookmarkTitleContainer {
+    font-weight: bold;
+    width: auto;
+    height: 90px;
+    background: #ECF1EF;
+    margin: 4px;
+}
+
+.indexBookmarkTitle {
+    color: white;
+    text-align: center;
+    margin: 5px;
+}
+
+.indexBookmarkData {
+    margin: 5px;
+}
+
+.indexBookmarkSaveDate {
+    font-style: italic;
+    font-size: 10px;
+    position: absolute; 
+    bottom: 0;
+}
+
+#indexAllBookmarks {
+    float: none;
+     display: inline-block;
+}

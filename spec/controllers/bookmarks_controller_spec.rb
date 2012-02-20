@@ -29,7 +29,7 @@ describe BookmarksController do
     it "should have the right title" do
       get 'new'
       response.should have_selector("title",
-                        :content => @base_title + " | new bookmark")
+                        :content => @base_title + " | add bookmark")
     end
    end
 
