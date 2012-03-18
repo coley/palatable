@@ -1,0 +1,19 @@
+<h1>Login</h1>
+
+<form action="dashboard" method="post">
+  <div class="field">
+    <label for="txtUsername" class="fieldLabelShort">Username:</label>
+    <input type="text" id="txtUsername" name="txtUsername" /><br />
+  </div>
+  <div class="field">
+    <label for="txtPassword" class="fieldLabelShort">Password:</label>
+    <input type="password" id="txtPassword" name="txtPassword" /><br /><br />
+  </div>
+  <div class="actions">
+    <input type="submit" value="login" title="submit login"
+           class="submissionButtons" />
+  </div>
+
+</form>
+    
+<p>New user? <%= link_to "Sign up now!", signup_path %></p>

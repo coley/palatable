@@ -1,0 +1,17 @@
+<%= form_for(@user) do |f| %>
+
+  <%= render :partial => 'shared/profile_fields', :locals => { :f => f }  %>
+  
+  <div class="field">
+    <%= f.label :password_confirmation, "Confirm Password", :class => "fieldLabel" %>
+    <%= f.password_field :password_confirmation, :value => @user.password %><br /><br />
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Update", :class => "submissionButtons" %>
+    <br /><br />
+  </div>
+  
+  <%= render 'shared/error_messages', :object => f.object %>
+
+<% end %>

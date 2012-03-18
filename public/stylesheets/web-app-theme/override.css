@@ -1,4 +1,4 @@
-/* Override here any style defined by web-app-theme */
+/* Bookmarks */
 
 #showBookmarkContainer {
     border:1px grey outset;
@@ -49,4 +49,45 @@
 #indexAllBookmarks {
     float: none;
      display: inline-block;
+}
+
+/* Forms */
+.submissionButtons {
+    background: #232C30;
+    border-radius: 8px;
+    /*box-shadow: rgba(0,0,0,1) 0 1px 0;
+    text-shadow: rgba(0,0,0,.4) 0 1px 0; */
+    padding: 2px;
+    color: white;
+    font-size: 12px;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+.fieldLabel {
+    width: 120px;
+    display: inline-block;
+    font-weight: bold;
+}
+
+.fieldLabelShort {
+    width: 75px;
+    display: inline-block;
+    font-weight: bold;
+}
+
+.field_with_errors {
+    color: red;
+    display: inline-block;
+}
+
+.error_explanation {
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+/* Notices */
+.message.notice {
+    font-weight: bold;
+    font-size: 20px;
 }

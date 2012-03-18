@@ -8,18 +8,7 @@
 </head>
 <body>
   <div id="container">
-    <div id="header">
-      <h1><a href="/">pal.atab.le</a></h1>
-      <div id="user-navigation">
-        <ul class="wat-cf">
-          <li><a href="/bookmarks"><%= t("web-app-theme.bookmarks", :default => "all bookmarks") %></a></li>
-          <li><a href="/bookmarks/new"><%= t("web-app-theme.newbookmark", :default => "add bookmark") %></a></li>
-        </ul>
-      </div>
-      <div id="main-navigation">
-        <ul class="wat-cf"></ul>
-      </div>
-    </div>    
+        <%= render 'layouts/header' %>
     <div id="wrapper" class="wat-cf">
       <div class="flash">
         <% flash.each do |type, message| -%>
@@ -30,11 +19,8 @@
       </div>
       <div id="main">
         <%= yield %>
-        <div id="footer">
-          <div class="block">
-            <p>Copyright &copy; <%= Time.now.year %> pal.atab.le</p>
-          </div>      
-        </div>
+        
+        <%= render 'layouts/footer' %>
       </div>
       <div id="sidebar">
         <%= yield :sidebar %>
