@@ -1,30 +1,20 @@
 <%= form_for(@bookmark) do |fieldBookmark| %>
 
-  <% if @bookmark.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@bookmark.errors.count, "error") %> prohibited this bookmark from being saved:</h2>
-
-      <ul>
-      <% @bookmark.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-      <br />
-    </div>
-  <% end %>
-
   <div class="field">
-    <%= fieldBookmark.label :name %><br />
+    <%= fieldBookmark.label :name, :class => "fieldLabelShort" %>
     <%= fieldBookmark.text_field :name %><br /><br />
   </div>
   <div class="field">
-    <%= fieldBookmark.label :url %><br />
+    <%= fieldBookmark.label :url, "URL" ,:class => "fieldLabelShort" %>
     <%= fieldBookmark.text_field :url %><br /><br />
   </div>
   <div class="field">
       <%= fieldBookmark.hidden_field :date_saved, :value=>DateTime.now %>
   </div>
   <div class="actions">
-    <%= fieldBookmark.submit %><br /><br />
+    <%= fieldBookmark.submit :class => "submissionButtons" %><br /><br />
   </div>
+  
+ <%= render 'shared/errorBookmark_messages', :object => fieldBookmark.object %>
+  
 <% end %>
