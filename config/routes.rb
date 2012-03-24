@@ -3,12 +3,6 @@ Palatable::Application.routes.draw do
   resources :bookmarks
   resources :users
 
-  #get "users/show"
-  #get "users/new"
-  #get "users/create"
-  #get "users/edit"
-  #get "users/update"
-
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   root :to => "users#login"
@@ -25,7 +19,7 @@ Palatable::Application.routes.draw do
   match '/login', :to => 'users#login'
   match '/dashboard', :to => 'users#dashboard'
   match '/signup', :to => 'users#new'
-
+  
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)

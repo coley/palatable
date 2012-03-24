@@ -31,3 +31,7 @@ group :development, :test do
    gem 'rspec-rails', '2.6.1'
    gem 'web-app-theme', '>= 0.6.2'
 end
+
+group :test do
+   gem 'factory_girl_rails', '1.0'
+end
