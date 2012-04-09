@@ -346,6 +346,10 @@ a:hover.linkBookmarkTitle {
     width: 430px;
 }
 
+.formContainerSignIn {
+    width: 420px;
+}
+
 .formContainerLogin {
     width: 290px;
 }
@@ -377,19 +381,24 @@ a:hover.linkBookmarkTitle {
   width:80%;
   font-weight: bold;
   font-size: 20px;
+  border: 1px solid #ddf;
+  background-color: #FFEBCD;
 }
 
 .flash .error {
-  border: 1px solid #fbb;
-  background-color: #fdd;
 }
 
 .flash .warning {
-  border: 1px solid #fffaaa;
-  background-color: #ffffcc;
 }
 
 .flash .notice {
-  border: 1px solid #ddf;
-  background-color: #FFEBCD; /*#eef;*/
+}
+
+
+/************************************************
+ *	Other
+ ************************************************/
+#siteDetails {
+    clear:both;
+    margin-left: 50px;
 }

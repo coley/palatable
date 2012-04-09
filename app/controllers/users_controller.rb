@@ -1,9 +1,5 @@
 class UsersController < ApplicationController
-  
-  def login
-    @title = "login"
-  end
-  
+    
   def dashboard
     @title = "dashboard"
   end
@@ -22,8 +18,12 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
 
     if (@user.save)
-      redirect_to(@user, :notice => 'You are signed up!')
+      sign_in @user
+      flash[:success] = "Welcome to Pal.atab.le!"
+      #redirect_to @user
+      redirect_to allBookmarks_path
     else
+      @title = "sign up"
       render 'new'
     end
   end

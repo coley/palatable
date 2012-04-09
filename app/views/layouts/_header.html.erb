@@ -1,19 +1,22 @@
-<div id="header">
-    <div id="logo">
-        <h1><%= link_to "pal.atab.le", root_path, :id => "logoName" %></h1>
-        <h4>Have fun sharing!</h4>
-    </div>
-    
-    <div id="searchForm">
-      <form action="#" method="post">
-          <input type="text" name="search" maxlength="10" size="10">
-          <input type="button" value="search" id="searchButton"
-                     name="searchButton" class="submissionButtons" />
-      </form>
-    </div>
-    
-    <div id="menulinks">
-        <%= render 'layouts/navigation' %>
-    </div>
+<header>
+    <div id="header">
+        <div id="logo">
+            <h1><%= link_to "pal.atab.le", root_path, :id => "logoName" %></h1>
+            <h4>Have fun sharing!</h4>
+        </div>
+        
+        <div id="searchForm">
+          <form action="#" method="post">
+              <input type="text" name="search" maxlength="10" size="10">
+              <input type="button" value="search" id="searchButton"
+                         name="searchButton" class="submissionButtons" />
+          </form>
+        </div>
+        
+        <div id="menulinks">
+            <%= render 'layouts/navigation' %>
+        </div>
   </div>
+
   <div id="mainimg">&nbsp;</div>
+</header>

@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: bookmarks
+#
+#  id         :integer         not null, primary key
+#  url        :string(255)
+#  name       :string(255)
+#  date_saved :datetime
+#  created_at :datetime
+#  updated_at :datetime
+#
+
 require 'spec_helper'
 
 describe Bookmark do

@@ -1,18 +1,35 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id                 :integer         not null, primary key
+#  username           :string(255)
+#  full_name          :string(255)
+#  email              :string(255)
+#  password           :string(255)
+#  created_at         :datetime
+#  updated_at         :datetime
+#  encrypted_password :string(255)
+#  salt               :string(255)
+#
+
 require 'spec_helper'
 
 describe User do
+   
+  before(:each) do
+    @attr = {
+      :username => "myusername",
+      :full_name => "Peter Mary",
+      :email => "myemail@gmail.com",
+      :password => "mypassword",
+      :password_confirmation => "mypassword"
+    }
+  end
  
  #user create
  #------------------------------------
- describe "create" do
-    before(:each) do
-        @attr = {:id => 1, :username => "myusername",
-            :full_name => "Peter Mary",
-            :email => "myemail@gmail.com",
-            :password => "mypassword",
-            :password_confirmation => "mypassword" }
-    end
-    
+ describe "create" do    
     it "should create a new instance given valid attributes" do
       User.create!(@attr)
     end    
@@ -111,29 +128,31 @@ describe User do
 
   #password tests
   #---------------------------------
-  it "should require a password" do
-    Factory.build(:user, :password => "").should_not be_valid
-  end
+  describe "password validations" do
 
-  it "should reject passwords that are too long" do
-    long_password = "a" * 41
-    Factory.build(:user, :password => long_password, :password_confirmation => long_password).should_not be_valid
-  end
+    it "should require a password" do
+      User.new(@attr.merge(:password => "", :password_confirmation => "")).
+        should_not be_valid
+    end
 
-  it "should reject passwords that are too short" do
-    short_password = "a" * 6
-    Factory.build(:user, :password => short_password, :password_confirmation => short_password).should_not be_valid
-  end
+    it "should require a matching password confirmation" do
+      User.new(@attr.merge(:password_confirmation => "invalid")).
+        should_not be_valid
+    end
 
-  it "should reject a valid password format without a matching confirmation" do
-    valid_password = "a" * 7
-    Factory.build(:user, :password => valid_password).should_not be_valid
-  end
+    it "should reject short passwords" do
+      short = "a" * 6
+      hash = @attr.merge(:password => short, :password_confirmation => short)
+      User.new(hash).should_not be_valid
+    end
 
-  it "should accept a valid password format with matching confirmation" do
-    valid_password = "a" * 7
-    Factory.build(:user, :password => valid_password, :password_confirmation => valid_password).should be_valid
+    it "should reject long passwords" do
+      long = "a" * 41
+      hash = @attr.merge(:password => long, :password_confirmation => long)
+      User.new(hash).should_not be_valid
+    end
   end
+  
 
   #confirm password tests
   #---------------------------------
@@ -159,6 +178,52 @@ describe User do
   it "should accept a valid password confirmation format with matching password" do
     valid_password = "a" * 7
     Factory.build(:user, :password => valid_password, :password_confirmation => valid_password).should be_valid
+  end
+
+   #password encryption tests
+   #---------------------------------
+   describe "password encryption" do
+
+    before(:each) do
+      @user = User.create!(@attr)
+    end
+
+    it "should have an encrypted password attribute" do
+      @user.should respond_to(:encrypted_password)
+    end
+    
+    it "should set the encrypted password" do
+      @user.encrypted_password.should_not be_blank
+    end
+    
+    describe "has_password? method" do
+
+      it "should be true if the passwords match" do
+        @user.has_password?(@attr[:password]).should be_true
+      end    
+
+      it "should be false if the passwords don't match" do
+        @user.has_password?("invalid").should be_false
+      end 
+    end
+    
+    describe "authenticate method" do
+
+      it "should return nil on username/password mismatch" do
+        wrong_password_user = User.authenticate(@attr[:username], "wrongusername")
+        wrong_password_user.should be_nil
+      end
+
+      it "should return nil for a username with no user" do
+        nonexistent_user = User.authenticate("usermissing", @attr[:password])
+        nonexistent_user.should be_nil
+      end
+
+      it "should return the user on username/password match" do
+        matching_user = User.authenticate(@attr[:username], @attr[:password])
+        matching_user.should == @user
+      end
+    end
   end
 
 end

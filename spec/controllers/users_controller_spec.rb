@@ -6,22 +6,7 @@ describe UsersController do
   before(:each) do
     @base_title = "pal.atab.le"
   end
-  
-  #login tests
-  #----------------------------------
-  describe "GET 'login'" do
-    it "should be successful" do
-      get 'login'
-      response.should be_success
-    end
     
-    it "should have the right title" do
-      get 'login'
-      response.should have_selector("title",
-                        :content => @base_title + " | login")
-    end
-  end
-  
   #dashboard tests
   #--------------------------------
   describe "GET 'dashboard'" do
@@ -80,11 +65,29 @@ describe UsersController do
   
   #create tests
   #--------------------------------
-  describe "GET 'create'" do
-    it "should be successful" do
-      get 'create'
-      response.should be_success
+  describe "POST 'create'" do
+    
+    describe "success" do
+      
+      before(:each) do
+        @attr = { :username => "maryjones",
+                  :full_name => "Mary Jones",
+                  :email => "maryjones@gmail.com",
+                  :password => "foobar12",
+                  :password_confirmation => "foobar12" }
+      end
+
+      it "should be successful" do
+        get 'create'
+        response.should be_success
+      end
+  
+      it "should sign the user in" do
+        post :create, :user => @attr
+        controller.should be_signed_in
+      end
     end
+    
   end
 
   #edit tests
