@@ -14,7 +14,11 @@
         </div>
         
         <div id="menulinks">
-            <%= render 'layouts/navigation' %>
+            <% if signed_in? %>
+                <%= render 'layouts/navigationSignedIn' %>
+            <% else %>
+                <%= render 'layouts/navigation' %>
+            <% end %>
         </div>
   </div>
 

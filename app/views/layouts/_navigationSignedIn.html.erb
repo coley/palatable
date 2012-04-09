@@ -1,0 +1,14 @@
+<navigationSignedIn>
+     <div id="menulinks">
+          <ul>        
+                <li><%= link_to "help", "#" %></li>
+        
+                <li><%= link_to "profile", current_user %></li>
+
+                <li><%= link_to "logout", signout_path, :method => :delete %></li>
+                
+                <li><%= link_to "home", allBookmarks_path %></li>
+
+           </ul>
+     </div>
+</navigationSignedIn>
