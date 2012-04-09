@@ -1,3 +1,5 @@
+<div class="formContainerSignup">
+
 <%= form_for(@user) do |f| %>
 
   <%= render :partial => 'shared/profile_fields', :locals => { :f => f }  %>
@@ -7,10 +9,12 @@
     <%= f.password_field :password_confirmation %><br /><br />
   </div>
   <div class="actions">
-    <%= f.submit "Register", :class => "submissionButtons" %>
+    <%= f.submit "Register", :class => "formSubmissionButtons" %>
     <br /><br />
   </div>
   
   <%= render 'shared/errorUser_messages', :object => f.object %>
 
 <% end %>
+
+</div>

@@ -1,3 +1,5 @@
+<div class="formContainerBookmark">
+
 <%= form_for(@bookmark) do |fieldBookmark| %>
 
   <div class="field">
@@ -12,9 +14,11 @@
       <%= fieldBookmark.hidden_field :date_saved, :value=>DateTime.now %>
   </div>
   <div class="actions">
-    <%= fieldBookmark.submit :class => "submissionButtons" %><br /><br />
+    <%= fieldBookmark.submit :class => "formSubmissionButtons" %><br /><br />
   </div>
   
  <%= render 'shared/errorBookmark_messages', :object => fieldBookmark.object %>
   
 <% end %>
+
+</div>

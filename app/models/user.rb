@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   attr_accessible :username, :full_name, :email, :password, :password_confirmation
   
   validates :username,  :presence => true,
-                        :uniqueness => true
+                        :uniqueness => { :case_sensitive => false }
   
   validates :full_name, :presence => true,
                         :length => { :within => 2..75 }

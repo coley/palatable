@@ -20,7 +20,9 @@
       
       <div class="indexBookmarkTitleContainer">
           <div class="indexBookmarkTitle">
-            <h3><%= link_to bookmark.name, bookmark %></h3>
+            <h3 class="bookmarkTitle">
+              <%= link_to bookmark.name, bookmark, :class => "linkBookmarkTitle" %>
+            </h3>
           </div>
       </div>
       

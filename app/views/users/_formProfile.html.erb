@@ -1,17 +1,21 @@
-<%= form_for(@user) do |f| %>
+<div class="formContainerProfile">
 
-  <%= render :partial => 'shared/profile_fields', :locals => { :f => f }  %>
+  <%= form_for(@user) do |f| %>
   
-  <div class="field">
-    <%= f.label :password_confirmation, "Confirm Password", :class => "fieldLabel" %>
-    <%= f.password_field :password_confirmation, :value => @user.password %><br /><br />
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update", :class => "submissionButtons" %>
-    <br /><br />
-  </div>
+    <%= render :partial => 'shared/profile_fields', :locals => { :f => f }  %>
+    
+    <div class="field">
+      <%= f.label :password_confirmation, "Confirm Password", :class => "fieldLabel" %>
+      <%= f.password_field :password_confirmation, :value => @user.password %><br /><br />
+    </div>
   
-  <%= render 'shared/errorUser_messages', :object => f.object %>
+    <div class="actions">
+      <%= f.submit "Update", :class => "formSubmissionButtons" %>
+      <br /><br />
+    </div>
+    
+    <%= render 'shared/errorUser_messages', :object => f.object %>
+  
+  <% end %>
 
-<% end %>
+</div>

@@ -11,19 +11,19 @@
   end
 %>
 
-<h1><%= @bookmark.name %></h1>
+<h2><%= @bookmark.name %></h2>
 
 <div id="showBookmarkContainer">
-  
-  <div id="showBookmarkData">
-    <p>URL:  <%= link_to (aUrl), aUrl, :target => '_blank' %></p>
+       
+    <span class="fieldLabelShort">URL:</span>
+    <%= link_to (aUrl), aUrl, :target => '_blank' %>
     
-    <p>Date Saved:
+    <br />
+    
+    <span class="fieldLabelShort">Date Saved:</span>
         <%= if date_exists
           @bookmark.date_saved.strftime("%m/%d/%Y")
         else
           "unknown"
         end %>
-    </p>
-  </div>
 </div>

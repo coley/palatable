@@ -1,0 +1,395 @@
+/************************************************
+ *	All Pages
+ ************************************************/
+
+html, body {
+	margin: 0px;
+	padding:0px;
+	background-color: white;
+	height: 100%;
+	font-family:arial;
+	font-size:12px;
+}
+
+h1, h2, h3, h4, h5, h6, p, form {
+	margin: 0px;
+	padding:0px;
+}
+
+a {
+	color:#F76B0C;
+	text-decoration:none;
+	font-weight: bold;
+	outline: none;
+}
+
+a:hover {
+	color:#F76B0C;
+	text-decoration:underline;
+	font-weight: bold;
+	outline: none;
+}
+
+.orangetext {
+	font-size:11px;
+	color:#EE8907;
+	font-weight:bold;
+	text-decoration:none;
+}
+
+.submissionButtons {
+	background-color:#F4A80A;
+	color:white;
+	font-weight:bold;
+	padding:2px 2px;
+	text-decoration:none;
+	border: 1px grey outset;
+	outline: none;
+}
+
+
+/************************************************
+ *	Page Layout
+ ************************************************/
+#wrapper {
+	margin:0px auto;
+	background-color: white;
+}
+
+#content {
+	margin:0px auto;
+	height: 100%;
+}
+
+/************************************************
+ *	Page Header
+ ************************************************/
+#header {
+	height:96px;
+}
+
+#searchForm {
+	margin-top: 10px;
+	margin-right: 10px;
+	float: right;
+}
+
+#logo {
+	width:500px;
+	float:left;
+}
+
+#logoName {
+	font-size:35px;
+	color:#F76B0C;
+	font-weight:normal;
+	text-decoration:none;
+	padding-left:40px;
+	padding-top:30px;
+}
+
+#logo h4 {
+	color:#808080;
+	font-weight:normal;
+	text-decoration:none;
+	padding-left:75px;
+}
+
+#logo a{
+	text-decoration:none;
+	outline: none;
+}
+
+#logo a:hover{
+	text-decoration:none;
+	outline: none;
+}
+
+#menulinks ul {
+	margin:0px; 
+	padding-top:67px;
+}
+
+#menulinks li{
+	float:right;
+	list-style-type:none;
+	width:100px;
+	height:25px;
+	text-align:center;
+	vertical-align: middle;
+	background-color:#F4A80A;
+	border-left:1px solid #FFF;
+	padding-top:4px;
+}
+
+#menulinks a{
+	color:#fff;
+	font-weight:normal;
+	text-decoration:none;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+#menulinks a:hover{
+	color:#fff;
+	font-weight:normal;
+	text-decoration:underline;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+#mainimg {
+	background-image:url("images/main_img.jpg");
+	background-repeat:repeat-x;
+	height:75px;
+	text-align:right;
+}
+
+/************************************************
+ *	Page Content
+ ************************************************/
+#contentarea {
+	padding-bottom: 53px; 
+	margin-top: 20px;
+	margin-left: 20px;
+	margin-right: 20px;
+	color: #808080;
+}
+
+#mainarea h2{
+	font-size:26px;
+	font-weight: bold;
+	color:#F76B0C;
+	font-weight:normal;
+	text-decoration:none;
+	padding-bottom:5px;
+}
+
+#mainarea {
+	float:left;
+	padding-left:20px;
+	padding-right: 20px;
+}
+
+#leftbar {
+	float:left;
+	width:539px;
+	border-right:1px solid #BCBDBC;
+}
+
+#leftbar h2{
+	font-size:26px;
+	color:#EE8907;
+	font-weight:normal;
+	text-decoration:none;
+	padding-left:40px;
+	padding-bottom:5px;
+}
+
+#leftbar p{
+	color:#797B7A;
+	font-weight:normal;
+	text-decoration:none;
+	padding:0px 40px;
+}
+
+#leftbar a {
+	color:#EE8907;
+	font-weight:bold;
+	text-decoration:none;
+	padding:0px 40px;
+}
+
+#leftbar a:hover {
+	color:#000;
+	font-weight:bold;
+	text-decoration:none;
+	padding:0px 40px;
+}
+
+#rightbar {
+	float:left;
+	width:237px;
+}
+
+#rightbar h2{
+	font-size:26px;
+	color:#797B7A;
+	font-weight:normal;
+	text-decoration:none;
+	padding-left:25px;
+	padding-bottom:5px;
+}
+
+#rightbar p{
+	color:#797B7A;
+	font-weight:normal;
+	text-decoration:none;
+	padding:0px 25px;
+}
+
+
+/************************************************
+ *	Page Footer
+ ************************************************/
+#footer {
+	width: 100%;
+	background-color: #9BBE00;
+	height: 30px;
+	position: absolute;
+	text-align: right;
+	bottom: 0;
+}
+
+#copyright {
+	font-size:11px;
+	color:#fff;
+	font-weight:bold;
+	padding-top: 15px;
+	padding-right: 40px;
+}
+
+
+/************************************************
+ *	Bookmarks
+ ************************************************/
+.indexBookmarkContainer {
+    float:left;
+    border:1px grey outset;
+    height:150px;
+    width:225px;
+    margin-right: 5px;
+    margin-top: 5px;
+    background: white;
+    position: relative; 
+}
+
+.indexBookmarkTitleContainer {
+    font-weight: bold;
+    width: auto;
+    height: 90px;
+    background: #F0F0F0;  /*#ECF1EF;*/
+    margin: 4px;
+}
+
+.indexBookmarkTitle {
+    color: white;
+    text-align: center;
+    margin: 7px;
+}
+
+.indexBookmarkData {
+    margin: 5px;
+}
+
+.indexBookmarkSaveDate {
+    font-style: italic;
+    font-size: 10px;
+    position: absolute; 
+    bottom: 1px;
+}
+
+#indexAllBookmarks {
+     float: none;
+     display: inline-block;
+}
+
+.bookmarkTitle {
+      padding-top: 4px;
+}
+
+a.linkBookmarkTitle {
+	color: #707070;
+	text-decoration: none;
+	font-weight: bold;
+	outline: none;
+}
+
+a:hover.linkBookmarkTitle {
+	color: #707070;
+	text-decoration: underline;
+	font-weight: bold;
+	outline: none;
+}
+
+
+/************************************************
+ *	Forms
+ ************************************************/
+.fieldLabel {
+    width: 120px;
+    display: inline-block;
+    font-weight: bold;
+}
+
+.fieldLabelShort {
+    width: 75px;
+    display: inline-block;
+    font-weight: bold;
+}
+
+.field_with_errors {
+    color:#F76B0C;
+    display: inline-block;
+}
+
+.error_explanation {
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+.formContainerBookmark {
+    width: 390px;
+}
+
+.formContainerSignup {
+    width: 430px;
+}
+
+.formContainerLogin {
+    width: 290px;
+}
+
+.formContainerProfile {
+    width: 430px;
+}
+
+.formSubmissionButtons {
+	background-color:#F4A80A;
+	color:white;
+	font-weight:bold;
+	padding:2px 2px;
+	text-decoration:none;
+	border: 1px grey outset;
+	outline: none;
+	float: right;
+	
+}
+
+/************************************************
+ *	Messages
+ ************************************************/
+.flash .message {
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  text-align:center;
+  margin:0 auto 5px;
+  width:80%;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.flash .error {
+  border: 1px solid #fbb;
+  background-color: #fdd;
+}
+
+.flash .warning {
+  border: 1px solid #fffaaa;
+  background-color: #ffffcc;
+}
+
+.flash .notice {
+  border: 1px solid #ddf;
+  background-color: #FFEBCD; /*#eef;*/
+}
