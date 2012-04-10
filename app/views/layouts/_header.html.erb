@@ -2,16 +2,14 @@
     <div id="header">
         <div id="logo">
             <h1><%= link_to "pal.atab.le", root_path, :id => "logoName" %></h1>
-            <h4>Have fun sharing!</h4>
+            <h4>have fun sharing</h4>
         </div>
         
-        <div id="searchForm">
-          <form action="#" method="post">
-              <input type="text" name="search" maxlength="10" size="10">
-              <input type="button" value="search" id="searchButton"
-                         name="searchButton" class="submissionButtons" />
-          </form>
-        </div>
+        <% if signed_in? %>
+            <%= render 'layouts/headerTopContainerSignedIn' %>
+        <% else %>
+            <%= render 'layouts/headerTopContainer' %>
+        <% end %>
         
         <div id="menulinks">
             <% if signed_in? %>

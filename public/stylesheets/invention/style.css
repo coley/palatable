@@ -66,12 +66,29 @@ a:hover {
  ************************************************/
 #header {
 	height:96px;
+	color: #808080;
 }
 
-#searchForm {
+#headerTopContainer {
 	margin-top: 10px;
 	margin-right: 10px;
 	float: right;
+}
+
+#searchForm {
+	display: inline-block;
+}
+
+#welcomeLinkNonSignedIn {
+	margin-top: 4px;
+	width: 170px;
+	float: left;
+}
+
+#welcomeLinkSignedIn {
+	margin-top: 4px;
+	width: 215px;
+	float: left;
 }
 
 #logo {
@@ -122,6 +139,10 @@ a:hover {
 	padding-top:4px;
 }
 
+#menulinks li:hover {
+	background-color: #9BBE00;
+}
+
 #menulinks a{
 	color:#fff;
 	font-weight:normal;
@@ -133,9 +154,10 @@ a:hover {
 #menulinks a:hover{
 	color:#fff;
 	font-weight:normal;
-	text-decoration:underline;
+	text-decoration:none;
 	font-weight: bold;
 	font-size: 14px;
+
 }
 
 #mainimg {

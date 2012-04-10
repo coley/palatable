@@ -3,13 +3,19 @@
 <%= form_for(@user) do |f| %>
 
   <%= render :partial => 'shared/profile_fields', :locals => { :f => f }  %>
+  
+  <div class="field">
+      <%= f.label :password, "password" ,:class => "fieldLabel" %>
+      <%= f.password_field :password %><br /><br />
+  </div>
 
   <div class="field">
-    <%= f.label :password_confirmation, "Confirm Password", :class => "fieldLabel" %>
+    <%= f.label :password_confirmation, "confirm password", :class => "fieldLabel" %>
     <%= f.password_field :password_confirmation %><br /><br />
   </div>
+  
   <div class="actions">
-    <%= f.submit "Register", :class => "formSubmissionButtons" %>
+    <%= f.submit "register", :class => "formSubmissionButtons" %>
     <br /><br />
   </div>
   

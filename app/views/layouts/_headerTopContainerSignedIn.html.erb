@@ -1,0 +1,12 @@
+<headerTopContainer>
+    <div id="headerTopContainer">
+        <span id="welcomeLinkSignedIn">Welcome <%= current_user.full_name %>! &nbsp;&nbsp;<%= link_to "sign out", signout_path %></span>
+        
+        <form action="#" id="searchForm" method="post">
+            <input type="text" name="search" maxlength="10" size="10">
+            <input type="button" value="search" id="searchButton"
+                                 name="searchButton" class="submissionButtons" />
+        </form>
+    
+    </div>
+</headerTopContainer>

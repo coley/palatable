@@ -1,20 +1,19 @@
-<h2>Sign in</h2>
-
+<h2>sign in</h2>
 
 <div class="formContainerSignIn">
   <div class="forms">
     <%= form_for(:session, :url => sessions_path) do |f| %>
     
       <div class="field">
-        <%= f.label :username, :class => "fieldLabel" %>
+        <%= f.label :username, "username", :class => "fieldLabel" %>
         <%= f.text_field :username %><br /><br />
       </div>
       <div class="field">
-        <%= f.label :password, :class => "fieldLabel" %>
+        <%= f.label :password, "password" , :class => "fieldLabel" %>
         <%= f.password_field :password %><br /><br />
       </div>
       <div class="actions">
-        <%= f.submit "Sign in", :class => "formSubmissionButtons" %>
+        <%= f.submit "sign in", :class => "formSubmissionButtons" %>
         <br /><br />
       </div>
     <% end %>
@@ -22,6 +21,6 @@
   <br />
 </div>
 
-<div>New user? <%= link_to "Sign up now!", signup_path %></div>
+<div>new user? <%= link_to "sign up now", signup_path %></div>
 
 <br /><br />

@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_filter :authenticate, :only => [:edit, :update, :show]
     
   def dashboard
     @title = "dashboard"
@@ -37,10 +38,17 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     if @user.update_attributes(params[:user])
-        redirect_to(@user, :notice => 'User was successfully updated.')
+        flash[:success] = "Profile was successfully updated."
+        redirect_to @user
     else
-        render :action => "edit" 
+        @title = "update profile"
+        render 'edit' 
     end
   end
 
+ private
+
+    def authenticate
+      deny_access unless signed_in?
+    end
 end
