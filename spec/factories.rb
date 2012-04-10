@@ -8,6 +8,5 @@ end
 
 Factory.define :bookmark do |bookmark|
   bookmark.url              "http://www.google.com"
-  bookmark.name             "Google"
-  bookmark.date_saved       "2012-02-25 03:20:12"
+  bookmark.name             "Google"       
 end

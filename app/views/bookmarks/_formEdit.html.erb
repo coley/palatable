@@ -1,0 +1,15 @@
+<div class="formContainerBookmark">
+
+<%= form_for(@bookmark) do |f| %>
+
+  <%= render :partial => 'shared/bookmark_fields', :locals => { :f => f }  %>
+  
+  <div class="actions">
+    <%= f.submit "update bookmark", :class => "formSubmissionButtons" %><br /><br />
+  </div>
+  
+ <%= render 'shared/errorBookmark_messages', :object => f.object %>
+  
+<% end %>
+
+</div>

@@ -4,26 +4,18 @@
       aUrl = "http://#{@bookmark.url}"
   end
   
-  if @bookmark.date_saved != nil
-        date_exists = true
-  else
-        date_exists = false
-  end
 %>
 
 <h2><%= @bookmark.name %></h2>
 
 <div id="showBookmarkContainer">
        
-    <span class="fieldLabelShort">URL:</span>
+    <span class="fieldLabel">URL:</span>
     <%= link_to (aUrl), aUrl, :target => '_blank' %>
     
     <br />
     
-    <span class="fieldLabelShort">Date Saved:</span>
-        <%= if date_exists
-          @bookmark.date_saved.strftime("%m/%d/%Y")
-        else
-          "unknown"
-        end %>
+    <span class="fieldLabel">Date Updated:</span>
+    <%=  @bookmark.updated_at.strftime("%m/%d/%Y") %>
+    
 </div>

@@ -10,6 +10,13 @@ describe BookmarksController do
   #index tests
   #----------------------------------
   describe "GET 'index'" do
+    
+    before(:each) do
+      @user = Factory(:user)
+      @bookmark = Factory(:bookmark)
+      test_sign_in(@user)
+    end
+
     it "should be successful" do
       get 'index'
       response.should be_success
@@ -25,6 +32,13 @@ describe BookmarksController do
   #new tests
   #----------------------------------
   describe "GET 'new'" do
+    
+    before(:each) do
+      @user = Factory(:user)
+      @bookmark = Factory(:bookmark)
+      test_sign_in(@user)
+    end
+    
     it "should be successful" do
       get 'new'
       response.should be_success
@@ -42,7 +56,9 @@ describe BookmarksController do
   describe "GET 'show'" do
     
     before(:each) do
+      @user = Factory(:user)
       @bookmark = Factory(:bookmark)
+      test_sign_in(@user)
     end
 
     it "should be successful" do
@@ -66,6 +82,13 @@ describe BookmarksController do
   #create tests
   #--------------------------------
   describe "GET 'create'" do
+    
+    before(:each) do
+      @user = Factory(:user)
+      @bookmark = Factory(:bookmark)
+      test_sign_in(@user)
+    end
+
     it "should be successful" do
       get 'create'
       response.should be_success

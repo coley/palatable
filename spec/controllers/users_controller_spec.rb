@@ -6,22 +6,7 @@ describe UsersController do
   before(:each) do
     @base_title = "pal.atab.le"
   end
-    
-  #dashboard tests
-  #--------------------------------
-  describe "GET 'dashboard'" do
-    it "should be successful" do
-      get 'dashboard'
-      response.should be_success
-    end
-    
-    it "should have the right title" do
-      get 'dashboard'
-      response.should have_selector("title",
-                        :content => @base_title + " | dashboard")
-    end
-  end
-  
+      
   #show tests
   #--------------------------------
   describe "GET 'show'" do
@@ -173,7 +158,7 @@ describe UsersController do
 
       it "should have a flash message" do
         put :update, :id => @user, :user => @attr
-        flash[:success].should =~ /Profile was successfully updated./
+        flash[:success].should =~ /profile was successfully updated/
       end
     end
   end

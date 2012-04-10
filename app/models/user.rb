@@ -13,8 +13,9 @@
 #  salt               :string(255)
 #
 
-
 class User < ActiveRecord::Base
+
+  has_many :bookmarks, :dependent => :destroy
 
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   

@@ -1,11 +1,5 @@
 <div id="indexAllBookmarks">
 <% @bookmarks.each do |bookmark|
-
-  if bookmark.date_saved != nil
-    date_exists = true
-  else
-    date_exists = false
-  end
    
   if /^http/.match(bookmark.url)
     aUrl = bookmark.url
@@ -30,12 +24,8 @@
         <%= link_to (aUrl), aUrl, :target => '_blank' %><br />
       </div>
       
-      <div class="indexBookmarkSaveDate">(date saved: 
-         <%= if date_exists
-            bookmark.date_saved.strftime("%m/%d/%Y")
-          else
-            "unknown"
-          end %>)
+      <div class="indexBookmarkSaveDate">(date updated: 
+         <%= bookmark.updated_at.strftime("%m/%d/%Y") %>)
       </div>
       
     </div>

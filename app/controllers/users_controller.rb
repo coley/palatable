@@ -1,13 +1,10 @@
 class UsersController < ApplicationController
   before_filter :authenticate, :only => [:edit, :update, :show]
     
-  def dashboard
-    @title = "dashboard"
-  end
-
   def show
     @title = "view profile"
     @user = User.find(params[:id])
+    @bookmarks = @user.bookmarks
   end
 
   def new
@@ -33,19 +30,19 @@ class UsersController < ApplicationController
     @title = "update profile"
     @user = User.find(params[:id])
   end
-
+  
   def update
     @user = User.find(params[:id])
 
     if @user.update_attributes(params[:user])
-        flash[:success] = "Profile was successfully updated."
+        flash[:success] = "profile was successfully updated"
         redirect_to @user
     else
         @title = "update profile"
         render 'edit' 
     end
   end
-
+    
  private
 
     def authenticate

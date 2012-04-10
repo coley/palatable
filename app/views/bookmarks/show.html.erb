@@ -2,6 +2,17 @@
 
 <br />
 
-<%= link_to 'Back', bookmarks_path %>
+<%= link_to 'update bookmark', edit_bookmark_path(@bookmark) %>
+
+<% if current_user?(@bookmark.user) %>
+    &nbsp; | &nbsp;
+    <%= link_to "delete", @bookmark, :method => :delete,
+                                     :confirm => "Are you sure?",
+                                     :title => @bookmark.name %>
+<% end %>
+  
+<br /><br /><br />
+
+<%= link_to '< all bookmarks', bookmarks_path %>
 
 <br /><br />
