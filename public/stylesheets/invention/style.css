@@ -67,6 +67,7 @@ a:hover {
 #header {
 	height:96px;
 	color: #808080;
+	min-width: 700px;
 }
 
 #headerTopContainer {
@@ -92,7 +93,7 @@ a:hover {
 }
 
 #logo {
-	width:500px;
+	/*width:500px;*/
 	float:left;
 }
 
