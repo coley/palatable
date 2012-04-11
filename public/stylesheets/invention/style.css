@@ -74,22 +74,27 @@ a:hover {
 	margin-top: 10px;
 	margin-right: 10px;
 	float: right;
+	width: 500px;
 }
 
 #searchForm {
 	display: inline-block;
+	float: right;
 }
+
 
 #welcomeLinkNonSignedIn {
 	margin-top: 4px;
 	width: 170px;
-	float: left;
+	float: right;
 }
 
 #welcomeLinkSignedIn {
 	margin-top: 4px;
-	width: 215px;
-	float: left;
+	width: 300px;
+	float: right;
+	text-align: right;
+	margin-right: 20px;
 }
 
 #logo {

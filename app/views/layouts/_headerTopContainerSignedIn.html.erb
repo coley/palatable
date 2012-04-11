@@ -1,15 +1,15 @@
 <headerTopContainer>
-    <div id="headerTopContainer">
-        <span id="welcomeLinkSignedIn">
-            <span id="signInName"><%= current_user.full_name %>! &nbsp;&nbsp;</span>
-            <span id="signOutLink"><%= link_to "sign out", signout_path %></span>
-        </span>
-        
-        <form action="#" id="searchForm" method="post">
-            <input type="text" name="search" maxlength="10" size="10">
-            <input type="button" value="search" id="searchButton"
-                                 name="searchButton" class="submissionButtons" />
-        </form>
-    
+    <div id="headerTopContainer">                
+            <form action="#" id="searchForm" method="post">
+                <input type="text" name="search" maxlength="10" size="10">
+                <input type="button" value="search" id="searchButton"
+                                     name="searchButton" class="submissionButtons" />
+            </form>
+            
+            <span id="welcomeLinkSignedIn">
+                <span id="signInName"><%= current_user.full_name %> &nbsp;&nbsp;</span>
+                <span id="signOutLink"><%= link_to "sign out", signout_path %></span>
+            </span>
+
     </div>
 </headerTopContainer>
