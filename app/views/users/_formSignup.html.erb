@@ -5,12 +5,12 @@
   <%= render :partial => 'shared/profile_fields', :locals => { :f => f }  %>
   
   <div class="field">
-      <%= f.label :password, "password" ,:class => "fieldLabel" %>
+      <%= f.label :password, "password" ,:class => "fieldLabel" %><br />
       <%= f.password_field :password %><br /><br />
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation, "confirm password", :class => "fieldLabel" %>
+    <%= f.label :password_confirmation, "confirm password", :class => "fieldLabel" %><br />
     <%= f.password_field :password_confirmation, :value => "" %><br /><br />
   </div>
   

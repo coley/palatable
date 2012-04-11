@@ -1,18 +1,25 @@
-<%= render 'showSelected' %>
 
-<br />
+<div id="showBookmarkContainer"> 
 
-<% if current_user?(@bookmark.user) %>
+    <%= render 'showSelected' %>
+
+
+    <div id="bookmarkChangeLinks">
+
+       <% if current_user?(@bookmark.user) %>
+            <%= link_to 'update bookmark', edit_bookmark_path(@bookmark) %>
+            &nbsp; | &nbsp;
+            <%= link_to "delete", @bookmark, :method => :delete,
+                                             :confirm => "Delete: are you sure?",
+                                             :title => @bookmark.name %>
+       <% end %>
+    </div>
+
+</div>
+
   
-    <%= link_to 'update bookmark', edit_bookmark_path(@bookmark) %>
-    &nbsp; | &nbsp;
-    <%= link_to "delete", @bookmark, :method => :delete,
-                                     :confirm => "Delete: are you sure?",
-                                     :title => @bookmark.name %>
-<% end %>
-  
-<br /><br /><br />
-
-<%= link_to '< all bookmarks', bookmarks_path %>
+<div id="showBookmarksCancel">
+    <%= link_to '< all bookmarks', bookmarks_path %>
+</div>
 
 <br /><br />

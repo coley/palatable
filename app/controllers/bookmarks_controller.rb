@@ -28,7 +28,7 @@ class BookmarksController < ApplicationController
     @title = "bookmark added"
 
     if @bookmark.save
-        redirect_to(@bookmark, :notice => 'bookmark was successfully created') 
+        redirect_to(allBookmarks_path, :notice => 'bookmark was successfully created') 
     else
         render :action => "new"
     end

@@ -6,16 +6,26 @@
   
 %>
 
-<h2><%= @bookmark.name %></h2>
-
-<div id="showBookmarkContainer">
-       
-    <span class="fieldLabel">URL:</span>
-    <%= link_to (aUrl), aUrl, :target => '_blank' %>
+  <div class="indexBookmarkContainer">
     
-    <br />
-    
-    <span class="fieldLabel">Date Updated:</span>
-    <%=  @bookmark.updated_at.strftime("%m/%d/%Y") %>
-    
-</div>
+    <div class="indexBookmarkData">
+      
+      <div id="showBookmarkTitleContainer">
+          <div class="indexBookmarkTitle">
+            <h3 class="bookmarkTitle">
+              <%= @bookmark.name %>
+            </h3>
+          </div>
+      </div>
+            
+      <div class="indexBookmarkUrl">
+        <%= link_to (aUrl), aUrl, :target => '_blank' %><br />
+      </div>
+      
+      <div class="indexBookmarkSaveDate">(date updated: 
+         <%= @bookmark.updated_at.strftime("%m/%d/%Y") %>)
+      </div>
+      
+      
+    </div>
+  </div>

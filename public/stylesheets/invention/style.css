@@ -350,6 +350,34 @@ a:hover.linkBookmarkTitle {
 	outline: none;
 }
 
+#bookmarkChangeLinks {
+	margin-bottom: 35px;
+	position: absolute; 
+	bottom: 1px;
+}
+
+#showBookmarkContainer {
+    float:left;
+    border:none;
+    height:215px;
+    width:225px;
+    margin-right: 5px;
+    margin-top: 5px;
+    background: white;
+    position: relative; 
+}
+
+#showBookmarkTitleContainer {
+    font-weight: bold;
+    width: auto;
+    height: 90px;
+    background: #F0F0F0;  /*#ECF1EF;*/
+    margin: 4px;
+}
+
+#showBookmarksCancel {
+    clear: both;
+}
 
 /************************************************
  *	Forms
@@ -404,7 +432,7 @@ a:hover.linkBookmarkTitle {
 	text-decoration:none;
 	border: 1px grey outset;
 	outline: none;
-	float: right;
+	
 	
 }
 

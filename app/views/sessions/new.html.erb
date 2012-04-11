@@ -5,11 +5,11 @@
     <%= form_for(:session, :url => sessions_path) do |f| %>
     
       <div class="field">
-        <%= f.label :username, "username", :class => "fieldLabel" %>
+        <%= f.label :username, "username", :class => "fieldLabel" %><br />
         <%= f.text_field :username %><br /><br />
       </div>
       <div class="field">
-        <%= f.label :password, "password" , :class => "fieldLabel" %>
+        <%= f.label :password, "password" , :class => "fieldLabel" %><br />
         <%= f.password_field :password %><br /><br />
       </div>
       <div class="actions">
