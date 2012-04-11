@@ -15,8 +15,12 @@
   <%= @user.email %>
 </div>
 
-<div>
-  <br />
-  <%= link_to 'update profile', edit_user_path(@user) %>
-  <br /><br />
-</div>
+<% if current_user?(@user) %>
+  <div>
+    <br />
+    <%= link_to 'update profile', edit_user_path(@user) %>
+    &nbsp; | &nbsp;
+    <%= link_to 'update password', credentials_path %>
+    <br /><br />
+  </div>
+<% end %>

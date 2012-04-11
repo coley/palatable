@@ -1,8 +1,11 @@
 class BookmarksController < ApplicationController
   
-  before_filter :authenticate, :only => [:index, :show, :new, :create, :edit, :update]
-  before_filter :authorized_user, :only => :destroy
+  #before_filter :authenticate, :only => [:index, :show, :new, :create, :edit, :update]
+  #before_filter :authorized_user, :only => [:destroy]
   
+  before_filter :authenticate, :only => [:index, :new, :create]
+  before_filter :authorized_user, :only => [:destroy, :show, :edit, :update]
+
   def index
     #@bookmarks = Bookmark.all(:order => "name")
     @bookmarks = @current_user.bookmarks
@@ -25,7 +28,7 @@ class BookmarksController < ApplicationController
     @title = "bookmark added"
 
     if @bookmark.save
-        redirect_to(@bookmark, :notice => 'Bookmark was successfully created.') 
+        redirect_to(@bookmark, :notice => 'bookmark was successfully created') 
     else
         render :action => "new"
     end
@@ -49,18 +52,35 @@ class BookmarksController < ApplicationController
   end
 
   def destroy
+    @bookmark = Bookmark.find(params[:id])
     @bookmark.destroy
-    redirect_back_or root_path
+    redirect_to allBookmarks_path
   end
 
  private
 
     def authenticate
-      deny_access unless signed_in?
+       if !signed_in?
+        flash[:error] = "please sign in to access this page"
+        deny_access
+      end
+      
+      #deny_access unless signed_in?
     end
     
     def authorized_user
-      @bookmark = current_user.bookmarks.find_by_id(params[:id])
-      redirect_to root_path if @bookmark.nil?
+            
+      if signed_in?
+        @bookmark = current_user.bookmarks.find_by_id(params[:id])
+      
+        if @bookmark.nil?
+          deny_access
+        end
+        #redirect_to root_path if @bookmark.nil?
+
+      else
+        authenticate
+      end
     end
+    
 end

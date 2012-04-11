@@ -2,7 +2,14 @@
     <div id="header">
         
         <div id="logo">
-            <h1><%= link_to "pal.atab.le", root_path, :id => "logoName" %></h1>
+            <h1>
+            <% if signed_in? %>
+                <%= link_to "pal.atab.le", allBookmarks_path, :id => "logoName" %>
+            <% else %>
+                <%= link_to "pal.atab.le", root_path, :id => "logoName" %>
+            <% end %>
+            </h1>
+    
             <h4>have fun sharing</h4>
         </div>
         

@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
 
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   
-  attr_accessor :password
+  attr_accessor :password, :updating_password
   attr_accessible :username, :full_name, :email, :password, :password_confirmation
   
   validates :username,  :presence => true,
@@ -31,15 +31,25 @@ class User < ActiveRecord::Base
   validates :email,     :presence => true,
                         :format   => { :with => email_regex }
   
-  validates :password,  :presence => true,
-                        :confirmation => true,
-                        :length => { :within => 7..40 }
+  validates :password,  :confirmation => true
+  validates :password,  :presence => true, :if => :should_validate_password?
+  validates :password,  :length => { :within => 7..40 }, :if => :should_validate_password?
                         
-  validates :password_confirmation,  :presence => true,
-                                     :length => { :within => 7..40 }
-                                     
-  before_save :encrypt_password
+  validates :password_confirmation,  :presence => true, :if => :should_validate_password?
+  validates :password_confirmation,  :length => { :within => 7..40 }, :if => :should_validate_password?
+                                       
+  before_save :encrypt_password, :unless => "password.blank?"
+
+  #Only updates password on user creation or if updating_password is set to true in controller
+  def should_validate_password?
+      updating_password || new_record?
+  end
   
+  #Only requires current password for update
+  def should_get_current_password?
+      updating_password
+  end
+    
   # Return true if the user's password matches the submitted password.
   def has_password?(submitted_password)
     # Compare encrypted_password with the encrypted version of
@@ -57,7 +67,7 @@ class User < ActiveRecord::Base
     user = find_by_id(id)
     (user && user.salt == cookie_salt) ? user : nil
   end
-
+  
   private
 
     def encrypt_password
@@ -76,4 +86,5 @@ class User < ActiveRecord::Base
     def secure_hash(string)
       Digest::SHA2.hexdigest(string)
     end
+            
 end

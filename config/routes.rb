@@ -6,7 +6,8 @@ Palatable::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => "bookmarks#index"
+  #root :to => "bookmarks#index"
+  root :to => "sessions#new"
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -20,6 +21,9 @@ Palatable::Application.routes.draw do
   match '/signup', :to => 'users#new'
   match '/signin',  :to => 'sessions#new'
   match '/signout', :to => 'sessions#destroy'
+  match '/credentials', :to => 'users#edit_password'
+  match '/credentialsUpdate', :to => 'users#update_password'
+
 
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase

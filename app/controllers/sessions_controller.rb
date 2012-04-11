@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
                              params[:session][:password])
     if user.nil?
       # Create an error message and re-render the signin form.
-      flash.now[:error] = "Invalid username and password combination."
+      flash.now[:error] = "invalid username and password combination"
       @title = "sign in"
       render 'new'
     else

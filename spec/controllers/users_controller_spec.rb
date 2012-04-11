@@ -6,6 +6,27 @@ describe UsersController do
   before(:each) do
     @base_title = "pal.atab.le"
   end
+  
+  #access control tests
+  #----------------------------------
+  describe "access control" do
+    
+    it "should deny access to 'edit'" do
+      get :edit, :id => 1
+      response.should redirect_to(signin_path)
+    end
+    
+    it "should deny access to 'update'" do
+      post :update, :id => 1
+      response.should redirect_to(signin_path)
+    end
+    
+    it "should deny access to 'show'" do
+      get :show, :id => 1
+      response.should redirect_to(signin_path)
+    end    
+
+  end
       
   #show tests
   #--------------------------------
@@ -15,7 +36,7 @@ describe UsersController do
       @user = Factory(:user)
       test_sign_in(@user)
     end
-
+    
     it "should be successful" do
       get :show, :id => @user
       response.should be_success
@@ -56,7 +77,7 @@ describe UsersController do
     describe "success" do
       
       before(:each) do
-        @attr = { :username => "maryjones",
+        @attr = { :username => "maryjonestest",
                   :full_name => "Mary Jones",
                   :email => "maryjones@gmail.com",
                   :password => "foobar12",
@@ -137,7 +158,7 @@ describe UsersController do
   describe "success" do
 
       before(:each) do
-        @attr = { :username => "maryjones",
+        @attr = { :username => "maryjones10",
                   :full_name => "Mary Jones",
                   :email => "maryjones@gmail.com",
                   :password => "foobar12",
