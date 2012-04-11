@@ -19,7 +19,7 @@ class UsersController < ApplicationController
 
     if (@user.save)
       sign_in @user
-      flash[:success] = "welcome to Pal.atab.le"
+      flash[:success] = "welcome to pal.atab.le"
       #redirect_to @user
       redirect_to allBookmarks_path
     else

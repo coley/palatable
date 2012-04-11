@@ -31,7 +31,7 @@ describe "Users" do
           fill_in "Confirm Password", :with => "mypassword"
           click_button
           response.should have_selector("p",
-                                        :content => "Welcome to Pal.atab.le!")
+                                        :content => "welcome to pal.atab.le")
           response.should render_template('bookmarks')
         end.should change(User, :count).by(1)
       end
@@ -46,7 +46,7 @@ describe "Users" do
         fill_in :username, :with => ""
         fill_in :password, :with => ""
         click_button
-        response.should have_selector("p", :content => "Invalid username and password combination.")
+        response.should have_selector("p", :content => "invalid username and password combination")
       end
     end
 
