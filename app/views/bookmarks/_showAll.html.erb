@@ -12,13 +12,17 @@
     
     <div class="indexBookmarkData">
       
+      <% link_to(bookmark, :anchor => 'indexBookmarkTitleContainer') do %> 
       <div class="indexBookmarkTitleContainer">
           <div class="indexBookmarkTitle">
             <h3 class="bookmarkTitle">
-              <%= link_to bookmark.name, bookmark, :class => "linkBookmarkTitle" %>
+              <%= bookmark.name %>
             </h3>
           </div>
       </div>
+    <% end %>
+      
+
       
       <div class="indexBookmarkUrl">
         <%= link_to (aUrl), aUrl, :target => '_blank' %><br />

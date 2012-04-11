@@ -295,6 +295,17 @@ a:hover {
     margin: 4px;
 }
 
+.indexBookmarkTitleContainer:hover {
+    background-color: #FFEBCD;
+}
+
+a.indexBookmarkTitleContainer {
+    text-decoration: none;
+    outline: none;
+}
+
+
+
 .indexBookmarkTitle {
     color: white;
     text-align: center;
@@ -319,6 +330,7 @@ a:hover {
 
 .bookmarkTitle {
       padding-top: 4px;
+      color: #808080;
 }
 
 a.linkBookmarkTitle {
