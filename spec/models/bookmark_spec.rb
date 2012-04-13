@@ -10,6 +10,7 @@
 #  user_id    :integer
 #
 
+
 require 'spec_helper'
 
 describe Bookmark do

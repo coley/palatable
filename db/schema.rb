@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120410063212) do
+ActiveRecord::Schema.define(:version => 20120413231353) do
 
   create_table "bookmarks", :force => true do |t|
     t.string   "url"
@@ -25,7 +25,6 @@ ActiveRecord::Schema.define(:version => 20120410063212) do
     t.string   "username"
     t.string   "full_name"
     t.string   "email"
-    t.string   "password"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "encrypted_password"

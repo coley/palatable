@@ -67,7 +67,14 @@ a:hover {
 #header {
 	height:96px;
 	color: #808080;
-	min-width: 700px;
+	min-width: 750px;
+}
+
+#headerMenu {
+	width: 510px;
+	float: right;
+	margin-top: 0px;
+	position: relative;
 }
 
 #headerTopContainer {
