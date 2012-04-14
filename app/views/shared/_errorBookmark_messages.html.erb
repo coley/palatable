@@ -1,7 +1,6 @@
    <% if @bookmark.errors.any? %>
     <div class="error_explanation">
-      <h3 class="errorMessageHeading"><%= pluralize(@bookmark.errors.count, "error") %> prohibited
-          this bookmark from being saved:</h3>
+      <h3 class="errorMessageHeading">Please correct <%= pluralize(@bookmark.errors.count, "error") %>:</h3>
 
       <ul>
       <% @bookmark.errors.full_messages.each do |msg| %>
