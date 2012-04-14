@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   
-  #before_filter :authenticate, :only => [:edit, :update, :show]
+  before_filter :authenticate, :only => [:edit_password, :update_password]
   before_filter :authorized_user, :only => [:show, :edit, :update]
  
   def show
@@ -20,7 +20,6 @@ class UsersController < ApplicationController
     if (@user.save)
       sign_in @user
       flash[:success] = "welcome to pal.atab.le"
-      #redirect_to @user
       redirect_to allBookmarks_path
     else
       @title = "sign up"
@@ -71,11 +70,9 @@ class UsersController < ApplicationController
     def authenticate
       
       if !signed_in?
-        flash[:error] = "please sign in to access this page"
         deny_access
       end
       
-      #deny_access unless signed_in?
     end
     
     def authorized_user
@@ -85,10 +82,8 @@ class UsersController < ApplicationController
           @userAccess = User.find(params[:id])
       
             if @userLoggedIn.id != @userAccess.id
-              flash[:error] = "unauthorized access"
               deny_access
             end
-          #redirect_to root_path if @user.nil?
       else
         authenticate
       end

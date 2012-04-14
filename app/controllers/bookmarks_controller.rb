@@ -1,13 +1,9 @@
 class BookmarksController < ApplicationController
   
-  #before_filter :authenticate, :only => [:index, :show, :new, :create, :edit, :update]
-  #before_filter :authorized_user, :only => [:destroy]
-  
   before_filter :authenticate, :only => [:index, :new, :create]
-  before_filter :authorized_user, :only => [:destroy, :show, :edit, :update]
+  before_filter :authorized_user, :only => [:show, :edit, :update, :destroy]
 
   def index
-    #@bookmarks = Bookmark.all(:order => "name")
     @bookmarks = @current_user.bookmarks
     @title = "home"
   end
@@ -23,7 +19,6 @@ class BookmarksController < ApplicationController
   end
 
   def create
-    #@bookmark = Bookmark.new(params[:bookmark])
     @bookmark = @current_user.bookmarks.create(params[:bookmark])
     @title = "bookmark added"
 
@@ -67,11 +62,9 @@ class BookmarksController < ApplicationController
 
     def authenticate
        if !signed_in?
-        flash[:error] = "please sign in to access this page"
         deny_access
       end
       
-      #deny_access unless signed_in?
     end
     
     def authorized_user
@@ -82,7 +75,6 @@ class BookmarksController < ApplicationController
         if @bookmark.nil?
           deny_access
         end
-        #redirect_to root_path if @bookmark.nil?
 
       else
         authenticate

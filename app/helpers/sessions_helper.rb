@@ -27,9 +27,13 @@ module SessionsHelper
   end
   
   def deny_access
-    #redirect_to signin_path, :notice => "Please sign in to access this page."
     store_location
-    redirect_to signin_path
+    
+    if signed_in?
+      sign_out      
+    end
+    
+    redirect_to signin_path, :notice => "unauthorized access - please sign in"
   end
     
   def redirect_back_or(default)

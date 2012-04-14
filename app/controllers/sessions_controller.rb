@@ -15,7 +15,6 @@ class SessionsController < ApplicationController
     else
       # Sign the user in and redirect to the user's bookmarks page.
       sign_in user
-      #redirect_to user
       redirect_to allBookmarks_path
     end
   end
