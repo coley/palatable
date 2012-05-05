@@ -21,8 +21,10 @@ class Bookmark < ActiveRecord::Base
                     :length => { :maximum => 99}
   
   validates :url, :presence => true,
-                  :length => { :minimum => 10 }
+                  :length => { :minimum => 10 },
+                  :uniqueness => { :case_sensitive => false,
+                                   :scope => [:user_id] }
                   
-   default_scope :order => 'bookmarks.name ASC'
+  default_scope :order => 'bookmarks.name ASC'
    
 end

@@ -195,7 +195,13 @@ a:hover {
 	font-size:26px;
 	font-weight: bold;
 	color:#F76B0C;
-	font-weight:normal;
+	text-decoration:none;
+	padding-bottom:5px;
+}
+
+#mainarea h3{
+	font-size:15px;
+	font-weight: bold;
 	text-decoration:none;
 	padding-bottom:5px;
 }
@@ -333,6 +339,13 @@ a.indexBookmarkTitleContainer {
     bottom: 1px;
 }
 
+.indexBookmarkLikeCount {
+    font-style: italic;
+    font-size: 11px;
+    position: absolute; 
+    bottom: 2px;
+}
+
 #indexAllBookmarks {
      float: none;
      display: inline-block;
@@ -358,16 +371,18 @@ a:hover.linkBookmarkTitle {
 }
 
 #bookmarkChangeLinks {
-	margin-bottom: 35px;
-	position: absolute; 
-	bottom: 1px;
+	margin-bottom: 5px;
+}
+
+#userLikeContainer {
+     margin-left: 50px;
+     min-width: 200px;
 }
 
 #showBookmarkContainer {
     float:left;
     border:none;
     height:215px;
-    width:225px;
     margin-right: 5px;
     margin-top: 5px;
     background: white;

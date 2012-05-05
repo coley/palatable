@@ -97,12 +97,13 @@ describe BookmarksController do
     before(:each) do
       @user = Factory(:user)
       test_sign_in(@user)
-      @attr = { :name => "apple", :url => "http://www.apple.com" }
+      @attr = { :name => "apple", :url => "http://www.testing.com" }
+      @attr2 = { :name => "apple2", :url => "http://www.testing2.com" }
       @bookmark = @user.bookmarks.create!(@attr)
     end
     
     it "should create a new instance given valid attributes" do
-        @user.bookmarks.create!(@attr)
+        @user.bookmarks.create!(@attr2)
     end
 
     it "should be successful" do

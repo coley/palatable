@@ -3,28 +3,55 @@
   else
       aUrl = "http://#{@bookmark.url}"
   end
+  
+  bookmarkCount = Bookmark.find(:all,
+                                :conditions  => ["LOWER(url) = ?", @bookmark.url.downcase]).count
+                                                                                                        
+  #allUsers = User.joins(:bookmarks).where(:bookmarks => {:url => @bookmark.url.downcase})
+  allUsers = User.find(:all,
+                       :conditions  => ["LOWER(url) = ?", @bookmark.url.downcase],
+                       :joins => :bookmarks)
+
 %>
 
-  <div class="indexBookmarkContainer">
-    
-    <div class="indexBookmarkData">
-      
-      <div id="showBookmarkTitleContainer">
-          <div class="indexBookmarkTitle">
-            <h3 class="bookmarkTitle">
-              <%= @bookmark.name %>
-            </h3>
-          </div>
-      </div>
-            
-      <div class="indexBookmarkUrl">
-        <%= link_to (aUrl), aUrl, :target => '_blank' %><br />
-      </div>
-      
-      <div class="indexBookmarkSaveDate">(date updated: 
-         <%= @bookmark.updated_at.strftime("%m/%d/%Y") %>)
-      </div>
-      
-      
-    </div>
-  </div>
+<table cellspacing="0px" cellpadding="0px">
+  <tr>
+    <td valign="top">
+       <div class="indexBookmarkContainer">
+         
+         <div class="indexBookmarkData">
+           
+           <div id="showBookmarkTitleContainer">
+               <div class="indexBookmarkTitle">
+                 <h3 class="bookmarkTitle">
+                   <%= @bookmark.name %>
+                 </h3>
+               </div>
+           </div>
+                 
+           <div class="indexBookmarkUrl">
+             <%= link_to (@bookmark.url), aUrl, :target => '_blank' %><br />
+           </div>
+           
+           <div class="indexBookmarkLikeCount">(bookmark likes: 
+              <%= bookmarkCount %>)
+           </div>
+                 
+         </div>
+         
+       </div>
+       
+       
+   </td>
+  <td valign="top">
+       <div id="userLikeContainer">
+            <h3>bookmarks liked by <%= bookmarkCount %> pal.atab.le users...</h3>
+            <ul>
+              <% allUsers.each do |user| %>
+                   <li><%= user.full_name %></li>
+              <% end %>
+            </ul>
+       </div>
+  </td>
+  </tr>
+</table>

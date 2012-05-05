@@ -6,6 +6,11 @@
   else
     aUrl = "http://#{bookmark.url}"
   end
+
+  bookmarkCount = Bookmark.find(:all,
+                                :conditions  => ["LOWER(url) = ?", bookmark.url.downcase]).count
+                                
+  bookmarkCountText = "(bookmark likes: " + bookmarkCount.to_s() + ")"
 %>
 
   <div class="indexBookmarkContainer">
@@ -25,15 +30,15 @@
 
       
       <div class="indexBookmarkUrl">
-        <%= link_to (aUrl), aUrl, :target => '_blank' %><br />
+        <%= link_to (bookmark.url), aUrl, :target => '_blank' %><br />
       </div>
       
-      <div class="indexBookmarkSaveDate">(date updated: 
-         <%= bookmark.updated_at.strftime("%m/%d/%Y") %>)
+      <div class="indexBookmarkLikeCount">
+        <%= link_to (bookmarkCountText), bookmark %>
+
       </div>
-      
-      
-      
+  
+            
     </div>
   </div>
 <% end %>

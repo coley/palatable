@@ -1,7 +1,11 @@
 Palatable::Application.routes.draw do
   
-  resources :bookmarks
-  resources :users
+  resources :bookmarks, :only => [:index, :show, :new, :create, :edit,
+                                 :update, :destroy]
+  
+  resources :users, :only => [:show, :new, :create, :edit, :update,
+                             :edit_password, :update_password]
+  
   resources :sessions, :only => [:new, :create, :destroy]
 
   # You can have the root of your site routed with "root"

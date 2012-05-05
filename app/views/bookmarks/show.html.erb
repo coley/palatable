@@ -1,10 +1,5 @@
 <h2>Bookmark: <%= @bookmark.name %></h2>
 
-<div id="showBookmarkContainer"> 
-
-    <%= render 'showSelected' %>
-
-
     <div id="bookmarkChangeLinks">
 
        <% if current_user?(@bookmark.user) %>
@@ -15,6 +10,11 @@
                                              :title => @bookmark.name %>
        <% end %>
     </div>
+    
+
+<div id="showBookmarkContainer"> 
+
+    <%= render 'showSelected' %>
 
 </div>
 
