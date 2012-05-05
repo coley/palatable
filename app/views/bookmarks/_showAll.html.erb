@@ -10,7 +10,7 @@
   bookmarkCount = Bookmark.find(:all,
                                 :conditions  => ["LOWER(url) = ?", bookmark.url.downcase]).count
                                 
-  bookmarkCountText = "(bookmark likes: " + bookmarkCount.to_s() + ")"
+  bookmarkCountText = "(liked by " + pluralize(bookmarkCount, "user") + ")"
 %>
 
   <div class="indexBookmarkContainer">

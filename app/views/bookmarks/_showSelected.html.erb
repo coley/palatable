@@ -29,8 +29,8 @@
                        <%= link_to (@bookmark.url), aUrl, :target => '_blank' %><br /><br />
                      </div>
                      
-                     <div class="indexBookmarkLikeCount">(bookmark likes: 
-                        <%= @bookmarkCount %>)
+                     <div class="indexBookmarkLikeCount">(liked by
+                              <%= pluralize(@bookmarkCount, "user") %>)
                      </div>
                  
                 </div>
@@ -45,7 +45,7 @@
    </td>
    <td valign="top">
        <div id="userLikeContainer">
-            <h3>bookmarks liked by <%= @bookmarkCount %> pal.atab.le users...</h3>
+            <h3>liked by <%= pluralize(@bookmarkCount, "user") %>...</h3>
             <ul>
               <% @allBookmarkUsers.each do |user| %>
                    <li><%= user.full_name %></li>
