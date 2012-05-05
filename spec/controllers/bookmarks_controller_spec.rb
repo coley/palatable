@@ -228,7 +228,10 @@ describe BookmarksController do
 
       before(:each) do
         @user = Factory(:user)
-        wrong_user = Factory(:user, :id => 999, :username => "anotheruser")
+        wrong_user = Factory(:user,
+                             :id => 999,
+                             :username => "anotherusertest",
+                             :email => "anotheremail@email.com")
         test_sign_in(wrong_user)
         @bookmark = Factory(:bookmark, :user => @user)
       end

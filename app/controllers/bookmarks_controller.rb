@@ -11,6 +11,11 @@ class BookmarksController < ApplicationController
  def show
     @bookmark = Bookmark.find(params[:id])
     @title = "show bookmark"
+    @bookmarkCount = Bookmark.find(:all,
+                                   :conditions  => ["LOWER(url) = ?", @bookmark.url.downcase]).count
+    @allBookmarkUsers = User.find(:all,
+                                  :conditions  => ["LOWER(url) = ?", @bookmark.url.downcase],
+                                  :joins => :bookmarks)
   end
 
   def new

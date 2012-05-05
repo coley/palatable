@@ -23,13 +23,16 @@ class User < ActiveRecord::Base
   attr_accessible :username, :full_name, :email, :password, :password_confirmation
   
   validates :username,  :presence => true,
-                        :uniqueness => { :case_sensitive => false }
+                        :uniqueness => { :case_sensitive => false },
+                        :length     => { :within => 5..20 }
   
   validates :full_name, :presence => true,
                         :length => { :within => 2..75 }
                         
   validates :email,     :presence => true,
-                        :format   => { :with => email_regex }
+                        :format   => { :with => email_regex },
+                        :length   => { :within => 2..200 },
+                        :uniqueness => { :case_sensitive => false }
   
   validates :password,  :confirmation => true
   validates :password,  :presence => true, :if => :should_validate_password?

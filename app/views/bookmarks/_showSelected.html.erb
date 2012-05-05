@@ -1,17 +1,11 @@
-<% if /^http/.match(@bookmark.url)
+<%
+
+  if /^http/i.match(@bookmark.url)
        aUrl = @bookmark.url
   else
-      aUrl = "http://#{@bookmark.url}"
+       aUrl = "http://#{@bookmark.url}"
   end
   
-  bookmarkCount = Bookmark.find(:all,
-                                :conditions  => ["LOWER(url) = ?", @bookmark.url.downcase]).count
-                                                                                                        
-  #allUsers = User.joins(:bookmarks).where(:bookmarks => {:url => @bookmark.url.downcase})
-  allUsers = User.find(:all,
-                       :conditions  => ["LOWER(url) = ?", @bookmark.url.downcase],
-                       :joins => :bookmarks)
-
 %>
 
 <table cellspacing="0px" cellpadding="0px">
@@ -19,35 +13,41 @@
     <td valign="top">
        <div class="indexBookmarkContainer">
          
-         <div class="indexBookmarkData">
+           <div class="indexBookmark">
+              
+               <div class="indexBookmarkData">
            
-           <div id="showBookmarkTitleContainer">
-               <div class="indexBookmarkTitle">
-                 <h3 class="bookmarkTitle">
-                   <%= @bookmark.name %>
-                 </h3>
-               </div>
-           </div>
+                     <div id="showBookmarkTitleContainer">
+                         <div class="indexBookmarkTitle">
+                           <h3 class="bookmarkTitle">
+                             <%= @bookmark.name %>
+                           </h3>
+                         </div>
+                     </div>
+                           
+                     <div class="indexBookmarkUrl">
+                       <%= link_to (@bookmark.url), aUrl, :target => '_blank' %><br /><br />
+                     </div>
+                     
+                     <div class="indexBookmarkLikeCount">(bookmark likes: 
+                        <%= @bookmarkCount %>)
+                     </div>
                  
-           <div class="indexBookmarkUrl">
-             <%= link_to (@bookmark.url), aUrl, :target => '_blank' %><br />
+                </div>
            </div>
-           
-           <div class="indexBookmarkLikeCount">(bookmark likes: 
-              <%= bookmarkCount %>)
-           </div>
-                 
-         </div>
-         
        </div>
        
+       <div id="showBookmarksCancel">
+              <br />
+              <%= link_to '< all bookmarks', bookmarks_path %>
+       </div>   
        
    </td>
-  <td valign="top">
+   <td valign="top">
        <div id="userLikeContainer">
-            <h3>bookmarks liked by <%= bookmarkCount %> pal.atab.le users...</h3>
+            <h3>bookmarks liked by <%= @bookmarkCount %> pal.atab.le users...</h3>
             <ul>
-              <% allUsers.each do |user| %>
+              <% @allBookmarkUsers.each do |user| %>
                    <li><%= user.full_name %></li>
               <% end %>
             </ul>
