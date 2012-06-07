@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   
   before_filter :authenticate, :only => [:edit_password, :update_password]
   before_filter :authorized_user, :only => [:show, :edit, :update]
+  before_filter :new_user, :only => [:new]
  
   def show
     @title = "view profile"
@@ -66,6 +67,14 @@ class UsersController < ApplicationController
 
     
  private
+ 
+    def new_user
+      
+      if signed_in?
+        redirect_to allBookmarks_path
+      end
+      
+    end
 
     def authenticate
       

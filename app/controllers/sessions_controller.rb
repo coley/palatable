@@ -1,7 +1,11 @@
 class SessionsController < ApplicationController
   
   def new
-    @title = "sign in"
+    if signed_in?
+        redirect_to allBookmarks_path
+    else
+      @title = "sign in"
+    end    
   end
 
   def create
@@ -19,9 +23,9 @@ class SessionsController < ApplicationController
     end
   end
 
- def destroy
+  def destroy
     sign_out
     redirect_to root_path
- end
+  end
  
 end
